@@ -4,6 +4,7 @@
 #include<algorithm>
 #include<numeric>
 #include <chrono>
+#include <map>
 using namespace std;
 vector<int> RandomNumbers(int n, int start, int end)
 {
@@ -150,6 +151,18 @@ int main()
     for (int n : Vec5)
     {
         cout << n << " ";
+    }
+    map<int, int> digitCounts;
+    for (int n : Vec5) {
+        string numStr = to_string(n);
+        for (char c : numStr) {
+            int digit = c - '0'; // Преобразуем символ цифры в число
+            digitCounts[digit]++;
+        }
+    }
+    cout << endl;
+    for (int i = 0; i <= 9; ++i) {
+        cout << "Цифра " << i << ": " << digitCounts[i] << " раз(а)" << endl;
     }
 }
 
